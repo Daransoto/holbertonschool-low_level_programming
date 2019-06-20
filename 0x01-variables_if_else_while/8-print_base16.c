@@ -6,10 +6,10 @@
 int main(void)
 {
 	char letter = 'a';
-	int digit = 0;
+	int digit = 48;
 
-	while (digit <= 9)
-		printf("%d", digit++);
+	while (digit <= 57)
+		putchar(digit++);
 	while (letter <= 'f')
 		putchar(letter++);
 	putchar('\n');
