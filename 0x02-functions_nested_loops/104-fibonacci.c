@@ -1,11 +1,12 @@
 #include <stdio.h>
+#include <stdint.h>
 /**
 * main - Entry point.
 * Return: Always 0 (success).
 */
 int main(void)
 {
-	long double n1 = 1, n2 = 2, r = 0;
+	long double n1 = 1.0, n2 = 2.0, r = 0.0;
 	int i;
 
 	printf("1, 2, ");
