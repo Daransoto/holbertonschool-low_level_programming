@@ -1,8 +1,9 @@
 #include <stdio.h>
 /**
-* main - Entry point
+* main - Entry point.
+* Return: Always 0 (success).
 */
-void main(void)
+int main(void)
 {
 	double n1 = 1, n2 = 2, r;
 	int i;
@@ -20,4 +21,5 @@ void main(void)
 		}
 	}
 	putchar('\n');
+	return (0);
 }

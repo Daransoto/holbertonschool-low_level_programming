@@ -1,8 +1,9 @@
 #include <stdio.h>
 /**
 * main - Entry point.
+* Return: always 0 (success).
 */
-void main(void)
+int main(void)
 {
 	int i, sum = 0;
 
@@ -12,5 +13,5 @@ void main(void)
 			sum += i;
 	}
 	printf("%d\n", sum);
+	return (0);
 }
-
