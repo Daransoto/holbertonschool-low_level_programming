@@ -6,16 +6,28 @@
 */
 int main(void)
 {
-	long double n1 = 1.0, n2 = 2.0, r = 0.0;
+	unsigned long int n1 = 1, n2 = 2, r = 0, n12, n22;
 	int i;
 
 	printf("1, 2, ");
 	for (i = 0; i < 96; i++)
 	{
-		r = n1 + n2;
-		printf("%.0Lf", r);
-		n1 = n2;
-		n2 = r;
+		if (i < 93)
+		{
+			r = n1 + n2;
+			printf("%lu", r);
+			n1 = n2;
+			n2 = r;
+		}
+		else
+		{
+			n12 = n1 % 1000000;
+			n1 /= 1000000;
+			n22 = n2 % 1000000;
+			n2 = n2 / 1000000;
+			printf("%lu", (n1+n2) + (n12+n22) / 1000000);
+			printf("%lu", (n12 + n22) % 1000000);
+		}
 		if (i != 95)
 		{
 			printf(", ");
