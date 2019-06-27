@@ -7,6 +7,9 @@ void print_diagonal(int n)
 {
 	short s = n, c;
 
+	if (n <= 0)
+		_putchar('\n');
+
 	for (; n > 0; n--)
 	{
 		for (c = 0; c < s - n; c++)
