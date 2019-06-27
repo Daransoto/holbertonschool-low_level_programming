@@ -7,6 +7,8 @@ void print_triangle(int size)
 {
 	short s = size, c, n, l;
 
+	if (size <= 0)
+		_putchar('\n');
 	for (l = 0; l < size; l++)
 	{
 		for (c = size - s; c < size; c++)
