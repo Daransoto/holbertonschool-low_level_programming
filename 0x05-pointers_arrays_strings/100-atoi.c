@@ -7,7 +7,6 @@ int _atoi(char *s)
 {
 	short sign = 1;
 	int num = 0, mul = 1;
-	char *t = s;
 
 	while (*s != '\0')
 	{
@@ -22,13 +21,12 @@ int _atoi(char *s)
 		}
 		s++;
 	}
-	while (s-- > t)
+	s--;
+	while (*s >= '0' && *s <= '9')
 	{
-		if (*s >= '0' && *s <= '9')
-		{
-			num += (*s - '0') * mul;
-			mul *= 10;
-		}
+		num += (*s - '0') * mul;
+		mul *= 10;
+		s--;
 	}
 	num *= sign;
 	return (num);
