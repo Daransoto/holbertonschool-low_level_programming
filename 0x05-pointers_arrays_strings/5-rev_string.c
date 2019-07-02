@@ -1,11 +1,11 @@
 #include "holberton.h"
 /**
-* print_rev - Prints a string in reverse order.
+* rev_string - Reverses a string.
 * @s: String to be printed.
 */
 void rev_string(char *s)
 {
-	char *t = s, n[10];
+	char *t = s, n[100];
 	short c = 0;
 
 	while (*s != '\0')
