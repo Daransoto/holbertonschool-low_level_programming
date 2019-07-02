@@ -5,4 +5,5 @@
 3-puts.c -> Prints a string, followed by a new line, to stdout.\
 4-print_rev.c -> Prints a string, in reverse, followed by a new line.\
 5-rev_string.c -> Reverses a string.\
+6-puts2.c -> Prints one char out of 2 of a string, followed by a new line.\
 
