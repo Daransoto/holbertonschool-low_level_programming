@@ -6,7 +6,8 @@
 int _atoi(char *s)
 {
 	short sign = 1;
-	int num = 0, mul = 1;
+	int num = 0;
+	unsigned int mul = 1;
 
 	while (*s != '\0')
 	{
