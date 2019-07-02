@@ -1,3 +1,9 @@
+/**
+* _strcpy - Copies a string to another string.
+* @src: - Source string.
+* @dest: Destination string.
+* Return: Pointer to destination string.
+*/
 char *_strcpy(char *dest, char *src)
 {
 	short c = 0;
@@ -9,6 +15,6 @@ char *_strcpy(char *dest, char *src)
 		dest++;
 		c++;
 	}
-	*dest='\0';
+	*dest = '\0';
 	return (dest - c);
 }
