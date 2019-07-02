@@ -1,4 +1,8 @@
 #include "holberton.h"
+/**
+* puts_half - Prints last half of a string.
+* @str: string to use.
+*/
 void puts_half(char *str)
 {
 	short c = 0, l;
@@ -11,7 +15,7 @@ void puts_half(char *str)
 		c = (c - 1) / 2;
 	else
 		c /= 2;
-	while (c <= l)
+	while (c < l)
 		_putchar(*(t + c++));
 	_putchar('\n');
 }
