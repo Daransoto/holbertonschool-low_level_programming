@@ -12,7 +12,7 @@ void puts_half(char *str)
 		c++, str++;
 	l = c;
 	if (c % 2)
-		c = (c - 1) / 2;
+		c = c / 2 + 1;
 	else
 		c /= 2;
 	while (c < l)
