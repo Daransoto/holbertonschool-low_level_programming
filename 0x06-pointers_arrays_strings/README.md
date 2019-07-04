@@ -9,4 +9,5 @@
 6-cap_string.c -> Capitalizes all words of a string.\
 7-leet.c -> Encodes a string into 1337.\
 8-rot13.c -> Encodes a string using rot13.\
+100-print_number.c -> Prints an integer.\
 
