@@ -12,4 +12,4 @@
 100-print_number.c -> Prints an integer.\
 101-magic.c -> Making a[2] print 98 using a pointer to previous declared variable.\
 102-infinite_add.c -> Adds two numbers.\
-
+103-print_buffer.c -> Prints a buffer.
