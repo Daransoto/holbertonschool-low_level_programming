@@ -29,8 +29,7 @@ void print_buffer(char *b, int size)
 		printf("%c%c", *(b + 6), *(b + 7));
 		printf("%c%c\n", *(b + 8), *(b + 9));
 		addr += 10;
-		b += 10;
-		d += 10;
+		b += 10, d += 10;
 	}
 	if (size % 10)
 	{
