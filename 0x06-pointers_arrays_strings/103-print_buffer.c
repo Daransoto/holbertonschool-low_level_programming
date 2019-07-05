@@ -9,7 +9,7 @@ void print_buffer(char *b, int size)
 	int addr = 0, i = 0;
 	char *c = b, e[1000], *d = e;
 
-	while (i++ <= size + 1)
+	while (i++ < size)
 	{
 		d[i - 1] = c[i - 1];
 		if (c[i - 1] < 32 || c[i - 1] > 126)
