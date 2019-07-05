@@ -28,16 +28,17 @@ void print_buffer(char *b, int size)
 		printf("%c%c", *(b + 4), *(b + 5));
 		printf("%c%c", *(b + 6), *(b + 7));
 		printf("%c%c\n", *(b + 8), *(b + 9));
-		addr += 10;
-		b += 10, d += 10;
+		b += 10, d += 10, addr += 10;
 	}
 	if (size % 10)
 	{
 		printf("%08x: ", addr);
-		for (i = 0; i < size % 10 / 2; i++)
+		for (i = 0; i < size % 10; i++, d++)
 		{
-			printf("%02x%02x ", *(d + i), *(d + i + 1));
-			d++;
+			printf("%02x", *d);
+			if (i % 2)
+				putchar(' ');
+			
 		}
 		for (i = 0; i < (10 - size % 10) / 2; i++)
 			printf("     ");
