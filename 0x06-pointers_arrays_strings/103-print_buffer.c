@@ -32,15 +32,18 @@ void print_buffer(char *b, int size)
 		b += 10;
 		d += 10;
 	}
-	printf("%08x: ", addr);
-	for (i = 0; i < size % 10 / 2; i++)
+	if (size % 10)
 	{
-		printf("%02x%02x ", *(d + i), *(d + i + 1));
-		d++;
+		printf("%08x: ", addr);
+		for (i = 0; i < size % 10 / 2; i++)
+		{
+			printf("%02x%02x ", *(d + i), *(d + i + 1));
+			d++;
+		}
+		for (i = 0; i < (10 - size % 10) / 2; i++)
+			printf("     ");
+		for (i = 0; i < (10 - size % 10) + 2; i++)
+			printf("%c", *b++);
 	}
-	for (i = 0; i < (10 - size % 10) / 2; i++)
-		printf("     ");
-	for (i = 0; i < (10 - size % 10) + 2; i++)
-		printf("%c", *b++);
 	putchar('\n');
 }
