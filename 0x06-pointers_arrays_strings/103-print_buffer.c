@@ -38,7 +38,6 @@ void print_buffer(char *b, int size)
 			printf("%02x", *d);
 			if (i % 2)
 				putchar(' ');
-			
 		}
 		for (i = 0; i < (10 - size % 10) / 2; i++)
 			printf("     ");
