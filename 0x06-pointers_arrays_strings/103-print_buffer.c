@@ -45,5 +45,6 @@ void print_buffer(char *b, int size)
 		for (i = 0; i < size % 10; i++)
 			printf("%c", *b++);
 	}
-	putchar('\n');
+	if (size == 0 || size % 10)
+		putchar('\n');
 }
