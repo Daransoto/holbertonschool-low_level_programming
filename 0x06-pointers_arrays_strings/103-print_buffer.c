@@ -39,8 +39,8 @@ void print_buffer(char *b, int size)
 			if (i % 2)
 				putchar(' ');
 		}
-		for (i = 0; i < size % 10; i++)
-			printf("      ");
+		for (i = 0; i < (size - 1) % 10; i++)
+			printf("         ");
 		for (i = 0; i < size % 10; i++)
 			printf("%c", *b++);
 	}
