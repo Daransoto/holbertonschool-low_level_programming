@@ -23,10 +23,8 @@ void print_buffer(char *b, int size)
 		printf("%02x%02x ", *(d + 4), *(d + 5));
 		printf("%02x%02x ", *(d + 6), *(d + 7));
 		printf("%02x%02x ", *(d + 8), *(d + 9));
-		printf("%c%c", *b, *(b + 1));
-		printf("%c%c", *(b + 2), *(b + 3));
-		printf("%c%c", *(b + 4), *(b + 5));
-		printf("%c%c", *(b + 6), *(b + 7));
+		printf("%c%c%c%c", *b, *(b + 1), *(b + 2), *(b + 3));
+		printf("%c%c%c%c", *(b + 4), *(b + 5), *(b + 6), *(b + 7));
 		printf("%c%c\n", *(b + 8), *(b + 9));
 		b += 10, d += 10, addr += 10;
 	}
