@@ -76,6 +76,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	}
 	if ((l1 == size_r - 1 || l2 == size_r - 1) && exc > 0)
 		return (0);
-	r[--i] = exc + '0';
+	if (exc > 0)
+		r[--i] = exc + '0';
 	return (r + i);
 }

@@ -23,21 +23,27 @@ void print_buffer(char *b, int size)
 		printf("%02x%02x ", *(d + 4), *(d + 5));
 		printf("%02x%02x ", *(d + 6), *(d + 7));
 		printf("%02x%02x ", *(d + 8), *(d + 9));
-		printf("%c%c", *b, *(b + 1));
-		printf("%c%c", *(b + 2), *(b + 3));
-		printf("%c%c", *(b + 4), *(b + 5));
-		printf("%c%c", *(b + 6), *(b + 7));
+		printf("%c%c%c%c", *b, *(b + 1), *(b + 2), *(b + 3));
+		printf("%c%c%c%c", *(b + 4), *(b + 5), *(b + 6), *(b + 7));
 		printf("%c%c\n", *(b + 8), *(b + 9));
-		addr += 10;
-		b += 10;
-		d += 10;
+		b += 10, d += 10, addr += 10;
 	}
-	printf("%08x: ", addr);
-	for (i = 0; i < size % 10 / 2; i++)
+	if (size % 10)
 	{
-		printf("%02x%02x ", *(d + i), *(d + i + 1));
-		d++;
+		printf("%08x: ", addr);
+		for (i = 0; i < size % 10; i++, d++)
+		{
+			printf("%02x", *d);
+			if (i % 2)
+				putchar(' ');
+		}
+		for (i = 0; i <= 10 - (size + 1) % 10; i++)
+			printf("  ");
+		for (i = 0; i < 5 - ((size) % 10 / 2); i++)
+			putchar(' ');
+		for (i = 0; i < size % 10; i++)
+			printf("%c", *b++);
 	}
-	for (i = 0; i < (10 - size % 10) / 2; i++)
-		printf("     ");
+	if (size == 0 || size % 10)
+		putchar('\n');
 }
