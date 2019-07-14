@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 	par = atoi(argv[1]);
-	while (par)
+	while (par > 0)
 		if (par >= 25)
 			par -= 25, r++;
 		else if (par >= 10)
