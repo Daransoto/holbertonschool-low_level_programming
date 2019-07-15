@@ -9,7 +9,7 @@
 */
 int main(int argc, char *argv[])
 {
-	int sum = 0, i = 1;
+	unsigned int sum = 0, i = 1;
 	char *ar;
 
 	while (i < argc)
