@@ -74,6 +74,8 @@ char **strtow(char *str)
 		return (0);
 
 	arr = alloc_array(str, arr);
+	if (!arr)
+		return (0);
 	for (; *str; str++)
 		if (*str != ' ')
 		{
