@@ -21,7 +21,7 @@ int len(char *str)
 */
 char *argstostr(int ac, char **av)
 {
-	int i = 1, siz = 1, j = 0;
+	int i = 0, siz = 1, j = 0;
 	char *res, *tmp;
 
 	if (ac == 0 || !av)
