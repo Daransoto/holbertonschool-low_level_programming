@@ -6,12 +6,12 @@
 */
 int len(char *str)
 {
-	int size = 0;
+	int siz = 0;
 
 	while (*str++)
-		size++;
+		siz++;
 
-	return (size);
+	return (siz);
 }
 /**
 * argstostr - Concatenates all the arguments of your program.
@@ -21,14 +21,14 @@ int len(char *str)
 */
 char *argstostr(int ac, char **av)
 {
-	int i = 1, size = 1, j = 0;
+	int i = 1, siz = 1, j = 0;
 	char *res, *tmp;
 
-	if (ac < 2 || av == NULL)
+	if (ac < 2)
 		return (0);
 
 	while (i < ac)
-		size += len(av[i++]) + 1;
+		siz += len(av[i++]) + 1;
 
 	res = malloc(size);
 	if (!res)
@@ -40,7 +40,7 @@ char *argstostr(int ac, char **av)
 		while (av[i][j])
 			*tmp++ = av[i][j++];
 		*tmp++ = '\n';
-		j = NULL;
+		j = 0;
 	}
 	res[size - 1] = '\0';
 	return (res);
