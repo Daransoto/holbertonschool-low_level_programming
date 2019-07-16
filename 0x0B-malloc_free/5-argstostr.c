@@ -24,7 +24,7 @@ char *argstostr(int ac, char **av)
 	int i = 1, siz = 1, j = 0;
 	char *res, *tmp;
 
-	if (ac < 2 || !av)
+	if (ac == 0 || !av)
 		return (0);
 
 	while (i < ac)
