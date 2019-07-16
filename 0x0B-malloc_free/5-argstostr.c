@@ -24,13 +24,13 @@ char *argstostr(int ac, char **av)
 	int i = 1, siz = 1, j = 0;
 	char *res, *tmp;
 
-	if (ac < 2 || av == NULL)
+	if (ac < 2 || !av)
 		return (0);
 
 	while (i < ac)
 		siz += len(av[i++]) + 1;
 
-	res = malloc(size);
+	res = malloc(siz);
 	if (!res)
 		return (0);
 
@@ -42,6 +42,6 @@ char *argstostr(int ac, char **av)
 		*tmp++ = '\n';
 		j = 0;
 	}
-	res[size - 1] = '\0';
+	res[siz - 1] = '\0';
 	return (res);
 }
