@@ -34,9 +34,9 @@ char *str_concat(char *s1, char *s2)
 	else
 		Ls2 = size(s2);
 
-	conc = (char *) malloc(Ls1 + Ls2 + 1);
+	conc = malloc(Ls1 + Ls2 + 1);
 	if (!conc)
-		return (0);
+		return (NULL);
 
 	tmp = conc;
 	while (*s1)
