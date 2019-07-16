@@ -26,7 +26,7 @@ int count_words(char *str)
 * @arr: Array defined to store the result.
 * Return: Array ready to be filled.
 */
-char **alloc_array(char *tmp, char **arr)
+char **alloc_array(char *tmp, char ***arr)
 {
 	int wc = 0, word = 0, i = 0;
 
@@ -39,21 +39,21 @@ char **alloc_array(char *tmp, char **arr)
 		else if (*tmp == ' ' && word)
 		{
 			word = 0;
-			arr[i] = malloc(wc + 1);
+			*(*arr + i) = malloc(wc + 1);
 			wc = 0;
-			if (!arr[i])
+			if (!*(*arr + i))
 			{
 				while (i)
 				{
-					free(arr[i]);
+					free(*(*arr + i));
 					i--;
 				}
-				free(arr);
+				free(*arr);
 				return (0);
 			}
 			i++;
 		}
-	return (arr);
+	return(*arr);
 }
 /**
 * strtow - Splits a string into words.
@@ -65,17 +65,20 @@ char **strtow(char *str)
 	int wc = 0, word = 0, i = 0, j = 0;
 	char **arr;
 
-	if (!str)
+	if (!str || *str == 0)
 		return (0);
 	wc = count_words(str);
 	arr = malloc(wc * sizeof(char *) + 1);
+	if (!arr)
+		return (0);
 	arr[wc] = '\0';
-	if (!arr)
-		return (0);
 
-	arr = alloc_array(str, arr);
+	arr = alloc_array(str, &arr);
 	if (!arr)
+	{
+		free(arr);
 		return (0);
+	}
 	for (; *str; str++)
 		if (*str != ' ')
 		{
