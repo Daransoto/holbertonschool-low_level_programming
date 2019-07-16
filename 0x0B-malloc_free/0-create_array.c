@@ -7,6 +7,9 @@
 */
 char *create_array(unsigned int size, char c)
 {
+	if (size <= 0)
+		return (0);
+
 	char *memory = malloc(size);
 	unsigned short counter = 0;
 
