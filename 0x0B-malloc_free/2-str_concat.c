@@ -25,17 +25,14 @@ char *str_concat(char *s1, char *s2)
 	char *conc, *tmp;
 
 	if (!s1)
-		Ls1 = 0;
+		s1 = "";
 	else
 		Ls1 = size(s1);
 
 	if (!s2)
-		Ls2 = 0;
+		s2 = "";
 	else
 		Ls2 = size(s2);
-
-	if (!s1 && !s2)
-		return (0);
 
 	conc = malloc(Ls1 + Ls2 + 1);
 	if (!conc)
