@@ -7,12 +7,13 @@
 */
 char *create_array(unsigned int size, char c)
 {
+	char *memory;
+	unsigned short counter = 0;
+
 	if (size <= 0)
 		return (0);
 
-	char *memory = malloc(size);
-	unsigned short counter = 0;
-
+	memory = malloc(size);
 	while (counter < size)
 		memory[counter++] = c;
 
