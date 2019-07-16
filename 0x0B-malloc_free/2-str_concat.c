@@ -4,9 +4,9 @@
 * @str: String to evaluate.
 * Return: Length of the given string.
 */
-unsigned short size(char *str)
+unsigned int size(char *str)
 {
-	unsigned short len = 0;
+	unsigned int len = 0;
 
 	while (*str++)
 		len++;
@@ -21,7 +21,7 @@ unsigned short size(char *str)
 */
 char *str_concat(char *s1, char *s2)
 {
-	unsigned short Ls1, Ls2;
+	unsigned int Ls1, Ls2;
 	char *conc, *tmp;
 
 	if (!s1)
