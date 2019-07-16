@@ -24,7 +24,7 @@ char *argstostr(int ac, char **av)
 	int i = 1, size = 1, j = 0;
 	char *res, *tmp;
 
-	if (ac < 2 || av == 0)
+	if (ac < 2 || av == NULL)
 		return (0);
 
 	while (i < ac)
@@ -40,7 +40,7 @@ char *argstostr(int ac, char **av)
 		while (av[i][j])
 			*tmp++ = av[i][j++];
 		*tmp++ = '\n';
-		j = 0;
+		j = NULL;
 	}
 	res[size - 1] = '\0';
 	return (res);
