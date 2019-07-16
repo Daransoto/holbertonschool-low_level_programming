@@ -53,7 +53,7 @@ char **alloc_array(char *tmp, char ***arr)
 			}
 			i++;
 		}
-	return(*arr);
+	return (*arr);
 }
 /**
 * strtow - Splits a string into words.
