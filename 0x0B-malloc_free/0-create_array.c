@@ -14,6 +14,9 @@ char *create_array(unsigned int size, char c)
 		return (0);
 
 	memory = malloc(size);
+	if (!memory)
+		return (0);
+
 	while (counter < size)
 		memory[counter++] = c;
 
