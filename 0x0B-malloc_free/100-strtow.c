@@ -31,12 +31,13 @@ char **alloc_array(char *tmp, char ***arr)
 	int wc = 0, word = 0, i = 0;
 
 	for (; *tmp; tmp++)
+	{
 		if (*tmp != ' ')
 		{
 			wc++;
 			word = 1;
 		}
-		else if (*tmp == ' ' && word)
+		if ((*tmp == ' ' || !*(tmp + 1)) && word)
 		{
 			word = 0;
 			*(*arr + i) = malloc(wc + 1);
@@ -54,6 +55,7 @@ char **alloc_array(char *tmp, char ***arr)
 			}
 			i++;
 		}
+	}
 	return (*arr);
 }
 /**
@@ -69,7 +71,7 @@ char **strtow(char *str)
 	if (!str || *str == '\0')
 		return (0);
 	wc = count_words(str);
-	arr = malloc(wc * sizeof(char *) + 1);
+	arr = malloc(wc * sizeof(char *) + 8);
 	if (!arr)
 		return (0);
 	arr[wc] = NULL;
