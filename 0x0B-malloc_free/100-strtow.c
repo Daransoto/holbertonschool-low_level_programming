@@ -49,6 +49,7 @@ char **alloc_array(char *tmp, char ***arr)
 					i--;
 				}
 				free(*arr);
+				free(arr);
 				return (0);
 			}
 			i++;
