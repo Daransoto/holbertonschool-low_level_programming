@@ -65,7 +65,7 @@ char **strtow(char *str)
 	int wc = 0, word = 0, i = 0, j = 0;
 	char **arr;
 
-	if (!str || *str == 0)
+	if (!str || *str == '\0')
 		return (0);
 	wc = count_words(str);
 	arr = malloc(wc * sizeof(char *) + 1);
