@@ -71,8 +71,7 @@ char **strtow(char *str)
 	arr = malloc(wc * sizeof(char *) + 1);
 	if (!arr)
 		return (0);
-	arr[wc] = malloc(sizeof(char *));
-	*arr[wc] = '\0';
+	arr[wc] = NULL;
 
 	arr = alloc_array(str, &arr);
 	if (!arr)
