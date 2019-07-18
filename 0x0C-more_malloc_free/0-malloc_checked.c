@@ -6,7 +6,7 @@
 */
 void *malloc_checked(unsigned int b)
 {
-	char *poin = malloc(b);
+	int *poin = malloc(b);
 
 	if (!poin)
 		exit(98);
