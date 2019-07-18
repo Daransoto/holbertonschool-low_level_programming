@@ -6,11 +6,9 @@
 */
 void *malloc_checked(unsigned int b)
 {
-	void *memory;
-
-	memory = malloc(b);
-	if (memory == NULL)
+	void *poin = malloc(b);
+	if (!poin)
 		exit(98);
 
-	return (memory);
+	return (poin);
 }
