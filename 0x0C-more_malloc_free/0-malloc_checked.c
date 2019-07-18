@@ -1,3 +1,5 @@
+#include "holberton.h"
+#include <stdio.h>
 #include <stdlib.h>
 /**
 * malloc_checked - Allocates memory using malloc.
@@ -6,13 +8,10 @@
 */
 void *malloc_checked(unsigned int b)
 {
-	int *poin;
+	void *poin = malloc(b);
 
-	poin = malloc(b);
-	if (poin == NULL)
-	{
+	if (!poin)
 		exit(98);
-	}
 
 	return (poin);
 }
