@@ -6,10 +6,13 @@
 */
 void *malloc_checked(unsigned int b)
 {
-	int *poin = malloc(b);
+	int *poin;
 
-	if (!poin)
+	poin = malloc(b);
+	if (poin == NULL)
+	{
 		exit(98);
+	}
 
 	return (poin);
 }
