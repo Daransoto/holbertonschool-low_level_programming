@@ -153,8 +153,8 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 */
 int main(int argc, char *argv[])
 {
-	unsigned int Ln1, Ln2, i, j, mult = 0;
-	char *res;
+	int Ln1, Ln2, i, j, mult = 0;
+	char *res, *buf;
 
 	if (argc != 3)
 	{
@@ -166,26 +166,31 @@ int main(int argc, char *argv[])
 	for (i = 0; i < Ln1; i++)
 		if (!_isdigit(argv[1][i]))
 		{
-			_puts("Error\n");
+			_puts("Error");
 			exit(98);
 		}
 	for (i = 0; i < Ln2; i++)
 		if (!_isdigit(argv[2][i]))
 		{
-			_puts("Error\n");
+			_puts("Error");
 			exit(98);
 		}
 
-	res = _calloc(Ls1 + Ls2 + 1, 1);
-	if (!res)
-		return (1);
+	res = _calloc(Ln1 + Ln2 + 1, 1);
+	res[Ln1 + Ln2] = '\0';
+	buf = malloc(Ln1 + 2);
 	for (i = Ln2 - 1; i >= 0; i--)
 	{
 		for (j = Ln1 - 1; j >= 0; j--)
 		{
 			mult = mult / 10 + argv[2][i] - '0' * argv[1][j] - '0';
+			buf[j + 1] = mult % 10;
 
 		}
+		if (mult / 10)
+			buf[0] = mult / 10;
+		else
+			buf[0] = 0;
 	}
 	return (0);
 }
