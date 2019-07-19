@@ -45,7 +45,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		return (0);
 
 	tmp = conc;
-	Lt -= Ls1 + 1;
+	Lt -= (Ls1 + 1);
 	while (*s1)
 		*tmp++ = *s1++;
 
