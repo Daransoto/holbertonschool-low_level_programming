@@ -158,7 +158,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		_puts("Error\n");
+		_puts("Error");
 		exit(98);
 	}
 	Ln1 = _strlen(argv[1]);
