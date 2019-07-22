@@ -27,13 +27,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	if (!s1)
 		s1 = "";
-	else
-		Ls1 = size(s1);
+	Ls1 = size(s1);
 
 	if (!s2)
 		s2 = "";
-	else
-		Ls2 = size(s2);
+	Ls2 = size(s2);
 
 	if (n >= Ls2)
 		Lt = Ls1 + Ls2 + 1;
