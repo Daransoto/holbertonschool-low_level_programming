@@ -1,5 +1,10 @@
 #include <stdlib.h>
 #include "dog.h"
+/**
+* size - Gives the size of a string.
+* @str: String to evaluate.
+* Return: Length of string.
+*/
 int size(char *str)
 {
 	int c = 0;
@@ -18,10 +23,14 @@ int size(char *str)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *ret_dog = malloc(sizeof(dog_t));
-	char *cname = malloc(size(name) + 1), *cowner = malloc(size(owner) + 1);
+	char *cname, *cowner;
 	int i = 0;
 
-	if (!ret_dog | !cname | !cowner)
+	if (!ret_dog | !name | !owner)
+		return (0);
+	cname = malloc(size(name) + 1);
+	cowner = malloc(size(owner) + 1);
+	if (!cname | !cowner)
 		return (0);
 
 	while ((cname[i++] = *name++))
