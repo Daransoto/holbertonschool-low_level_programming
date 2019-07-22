@@ -26,11 +26,26 @@ dog_t *new_dog(char *name, float age, char *owner)
 	char *cname, *cowner;
 	int i = 0;
 
+	if (!name)
+		name = "";
+	if (!owner)
+		owner = "";
 	ret_dog = malloc(sizeof(dog_t));
-	cname = malloc(size(name) + 1);
-	cowner = malloc(size(owner) + 1);
-	if (!ret_dog | !cname | !cowner)
+	if (!ret_dog)
 		return (0);
+	cname = malloc(size(name) + 1);
+	if (!cname)
+	{
+		free(ret_dog);
+		return (0);
+	}
+	cowner = malloc(size(owner) + 1);
+	if (!cowner)
+	{
+		free(cname);
+		free(ret_dog);
+		return (0);
+	}
 
 	while ((cname[i++] = *name++))
 		;
