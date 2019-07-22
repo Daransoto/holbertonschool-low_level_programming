@@ -22,15 +22,18 @@ int size(char *str)
 */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *ret_dog = malloc(sizeof(dog_t));
+	dog_t *ret_dog;
 	char *cname, *cowner;
 	int i = 0;
 
-	if (!ret_dog | !name | !owner)
-		return (0);
+	if (!name)
+		name = "";
+	if (!owner)
+		owner = "";
+	ret_dog = malloc(sizeof(dog_t));
 	cname = malloc(size(name) + 1);
 	cowner = malloc(size(owner) + 1);
-	if (!cname | !cowner)
+	if (!ret_dog | !cname | !cowner)
 		return (0);
 
 	while ((cname[i++] = *name++))
