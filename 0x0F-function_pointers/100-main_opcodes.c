@@ -26,7 +26,9 @@ int main(int argc, char *argv[])
 	{
 		printf("%02x", *poin++);
 		if (i < atoi(argv[1]) - 1)
-			putchar(' ');
+			printf(" ");
+		else
+			printf("\n");
 	}
 	return (0);
 }
