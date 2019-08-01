@@ -25,16 +25,16 @@ int _strlen(char *s)
 */
 list_t *add_node(list_t **head, const char *str)
 {
-	list_t *new = malloc(sizeof(list_t));
+	list_t *new;
 
+	if (!head)
+		return (0);
+	new = malloc(sizeof(list_t));
 	if (!new)
 		return (0);
-	if (str)
-	{
-		new->str = strdup(str);
-		new->len = _strlen(new->str);
-		new->next = *head;
-		*head = new;
-	}
+	new->str = strdup(str);
+	new->len = _strlen(new->str);
+	new->next = *head;
+	*head = new;
 	return (*head);
 }
