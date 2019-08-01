@@ -1,6 +1,12 @@
 #include <stdio.h>
-void myConstructor(void) __attribute__ ((constructor));
-void myConstructor(void)
+void Print_it(void) __attribute__ ((constructor));
+/**
+* Print_it - Prnits a text before main.
+*/
+void Print_it(void)
 {
-	printf ("You're beat! and yet, you must allow,\nI bore my house upon my back!\n");
+	char *s = "You're beat! and yet, you must allow,\nI bore my house upon my ";
+	char *s2 = "back!\n";
+
+	printf("%s%s", s, s2);
 }
