@@ -10,11 +10,12 @@ int _strlen(char *s)
 {
 	short n = 0;
 
-	while (*s != '\0')
-	{
-		s++;
-		n++;
-	}
+	if (s)
+		while (*s != '\0')
+		{
+			s++;
+			n++;
+		}
 	return (n);
 }
 /**
@@ -32,16 +33,8 @@ list_t *add_node_end(list_t **head, const char *str)
 	new = malloc(sizeof(list_t));
 	if (!new)
 		return (0);
-	if (str)
-	{
-		new->str = strdup(str);
-		new->len = _strlen(new->str);
-	}
-	else
-	{
-		new->str = NULL;
-		new->len = 0;
-	}
+	new->str = strdup(str);
+	new->len = _strlen(new->str);
 	new->next = 0;
 	if (!*head)
 	{
