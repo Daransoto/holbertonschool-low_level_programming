@@ -30,10 +30,15 @@ list_t *add_node(list_t **head, const char *str)
 	if (!new)
 		return (0);
 	if (str)
+	{
 		new->str = strdup(str);
+		new->len = _strlen(new->str);
+	}
 	else
-		new->str = strdup("");
-	new->len = _strlen(new->str);
+	{
+		new->str = strdup("(nil)");
+		new->len = 0;
+	}
 	new->next = *head;
 	*head = new;
 	return (*head);
