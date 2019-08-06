@@ -21,7 +21,11 @@ size_t free_listint_safe(listint_t **h)
 		if (!*h || (*h)->next >= check)
 			break;
 	}
-	free(*h);
-	(*h) = 0;
+	if (*h)
+	{
+		free(*h);
+		(*h) = 0;
+		counter++;
+	}
 	return (counter);
 }
