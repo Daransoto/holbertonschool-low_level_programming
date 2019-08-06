@@ -8,11 +8,6 @@
 listint_t *find_listint_loop(listint_t *head)
 {
 
-	listint_t *one;
-	listint_t *two;
-
-	(void)one;
-	(void)two;
 	if (!head)
 		return (0);
 	while (1)
