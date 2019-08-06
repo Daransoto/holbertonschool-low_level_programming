@@ -12,12 +12,6 @@ size_t free_listint_safe(listint_t **h)
 
 	if (!*h || !h)
 		return (0);
-	if (*h->next == *h)
-	{
-		free(*h);
-		*h = 0;
-		return (1);
-	}
 	while (1)
 	{
 		check = (*h)->next;
@@ -25,7 +19,14 @@ size_t free_listint_safe(listint_t **h)
 		*h = check;
 		counter++;
 		if (!*h || (*h)->next >= check)
+		{
+			if (counter == 1)
+			{
+				*head = 0;
+				return (1);
+			}
 			break;
+		}
 	}
 	if (*h)
 	{
