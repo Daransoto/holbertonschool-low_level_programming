@@ -10,16 +10,16 @@ size_t free_listint_safe(listint_t **h)
 	int counter = 0;
 	listint_t *check = *h;
 
-	if (!*h)
+	if (!*h || !h)
 		return (0);
 	while (1)
 	{
-		if (!(*h)->next || (*h)->next >= check)
-			break;
 		check = (*h)->next;
 		free(*h);
 		*h = check;
 		counter++;
+		if (!*h || (*h)->next >= check)
+			break;
 	}
 	free(*h);
 	(*h) = 0;
