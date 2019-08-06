@@ -11,7 +11,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	listint_t *iterator = *head, *new;
 
-	if (!*head)
+	if (!*head || !head)
 		return (0);
 
 	while (idx > 1)
