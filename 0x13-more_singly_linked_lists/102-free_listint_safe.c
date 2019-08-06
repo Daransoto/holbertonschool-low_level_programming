@@ -22,7 +22,7 @@ size_t free_listint_safe(listint_t **h)
 		{
 			if (counter == 1)
 			{
-				*head = 0;
+				*h = 0;
 				return (1);
 			}
 			break;
