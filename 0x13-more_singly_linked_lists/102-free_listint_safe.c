@@ -20,7 +20,7 @@ size_t free_listint_safe(listint_t **h)
 		counter++;
 		if (!*h || (*h)->next >= check)
 		{
-			if (counter == 1)
+			if (*h && counter == 1)
 			{
 				*h = 0;
 				return (1);
