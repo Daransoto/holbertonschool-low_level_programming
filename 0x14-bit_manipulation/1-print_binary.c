@@ -1,8 +1,13 @@
 #include "holberton.h"
+/**
+* print_binary - Prints the binary representation of a number.
+* @n: Number to be converted.
+*/
 void print_binary(unsigned long int n)
 {
 	unsigned short count = 0;
-	while(!(n & 0x8000000000000000) && count < 64)
+
+	while (!(n & 0x8000000000000000) && count < 64)
 	{
 		count++;
 		n <<= 1;
