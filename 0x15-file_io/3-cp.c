@@ -5,6 +5,24 @@
 #include <unistd.h>
 #include <stdio.h>
 /**
+* read_error - Handle of error reading a file.
+* @filename: Filename tried to be read.
+*/
+void read_error(char *filename)
+{
+	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
+	exit(98);
+}
+/**
+* write_error - Handle of error writing a file.
+* @filename: Filename tried to be written.
+*/
+void write_error(char *filename)
+{
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
+	exit(99);
+}
+/**
 * main - Entry point.
 * @argc: Argument counter.
 * @argv: Argument vector.
@@ -22,21 +40,20 @@ int main(int argc, char *argv[])
 	}
 	fd_from = open(argv[1], O_RDONLY);
 	if (fd_from < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
+		read_error(argv[1]);
 	fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (fd_to < 0)
 	{
 		close(fd_from);
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
+		write_error(argv[2]);
 	}
 	while (read_chars == 1024)
 	{
 		read_chars = read(fd_from, buff, 1024);
-		write(fd_to, buff, read_chars);
+		if (read_chars < 0)
+			read_error(argv[1]);
+		if (write(fd_to, buff, read_chars) < read_chars)
+			write_error(argv[2]);
 	}
 	if (close(fd_from) < 0)
 	{
