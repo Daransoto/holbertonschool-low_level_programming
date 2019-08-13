@@ -14,8 +14,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	int file_descriptor, nchars, write_check;
 	char *buffer;
 
+	if (!filename || !letters)
+		return (0);
 	file_descriptor = open(filename, O_RDONLY);
-	if (!filename || !letters || file_descriptor < 0)
+	if (file_descriptor < 0)
 		return (0);
 	buffer = malloc(letters + 1);
 	if (!buffer)
