@@ -3,9 +3,15 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
+/**
+* read_textfile - Reads a text file and prints it to the POSIX standard output.
+* @filename: Name of the file to be read.
+* @letters: Number of letters it should read and print.
+* Return: Number of letters it could read and print.
+*/
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int file_descriptor, nchars;
+	int file_descriptor, nchars, write_check;
 	char *buffer;
 
 	file_descriptor = open(filename, O_RDONLY);
@@ -24,7 +30,9 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		close(file_descriptor);
 		return (0);
 	}
-	write(STDOUT_FILENO, buffer, nchars);
+	write_check = write(STDOUT_FILENO, buffer, nchars);
+	if (write_check < nchars)
+		return (0);
 	free(buffer);
 	close(file_descriptor);
 	return (nchars);
