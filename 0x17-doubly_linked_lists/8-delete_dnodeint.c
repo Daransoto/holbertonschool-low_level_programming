@@ -9,12 +9,14 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	dlistint_t *iterator = *head, *temp;
 
-	if (!*head)
+	if (!head || !*head)
 		return (-1);
 
 	if (!index)
 	{
 		*head = iterator->next;
+		if (iterator->next)
+			iterator->next->prev = NULL;
 		free(iterator);
 		return (1);
 	}
