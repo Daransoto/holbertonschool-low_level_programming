@@ -6,7 +6,8 @@
 * @n: Number to initialize the new node.
 * Return: Pointer to the node at index, or NULL if the index doesn't exist.
 */
-dlistint_t *insert_dnodeint_at_index(dlistint_t **head, unsigned int idx, int n)
+dlistint_t *insert_dnodeint_at_index(dlistint_t **head, unsigned int idx, int n
+)
 {
 	dlistint_t *iterator = *head, *new;
 
