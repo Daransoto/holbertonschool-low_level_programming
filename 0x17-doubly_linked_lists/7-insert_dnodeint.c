@@ -26,9 +26,9 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **head, unsigned int idx, int n
 		return (0);
 	if (!idx)
 	{
+		new->prev = *head;
 		*head = new;
 		new->next = iterator;
-		new->prev = *head;
 	}
 	else
 	{
