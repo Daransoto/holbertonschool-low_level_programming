@@ -13,6 +13,8 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	unsigned long int index;
 	hash_node_t *iterator;
 
+	if (!ht || !key || !strcmp(key, ""))
+		return (NULL);
 	index = key_index((unsigned const char *)key, ht->size);
 	iterator = ht->array[index];
 	while (iterator)
