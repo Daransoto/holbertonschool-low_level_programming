@@ -28,14 +28,17 @@ void hash_table_print(const hash_table_t *ht)
 	unsigned long int i;
 	char found = 0;
 
-	putchar('{');
-	for (i = 0; i < ht->size; i++)
-		if (ht->array[i])
-		{
-			if (found)
-				printf(", ");
-			found = 1;
-			print_list(ht->array[i]);
-		}
-	puts("}");
+	if (ht)
+	{
+		putchar('{');
+		for (i = 0; i < ht->size; i++)
+			if (ht->array[i])
+			{
+				if (found)
+					printf(", ");
+				found = 1;
+				print_list(ht->array[i]);
+			}
+		puts("}");
+	}
 }
