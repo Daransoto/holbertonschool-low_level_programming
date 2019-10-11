@@ -64,7 +64,7 @@ const char *value)
 {
 	shash_node_t *new;
 
-	if (!head)
+	if (!head || !key || !strcmp(key, ""))
 		return (NULL);
 	new = malloc(sizeof(shash_node_t));
 	if (!new)
@@ -178,10 +178,11 @@ void shash_table_print(const shash_table_t *ht)
 void shash_table_print_rev(const shash_table_t *ht)
 {
 	int counter = 0;
-	shash_node_t *h = ht->stail;
+	shash_node_t *h;
 
 	if (ht)
 	{
+		h = ht->stail;
 		putchar('{');
 		while (h)
 		{
