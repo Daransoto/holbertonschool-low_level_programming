@@ -155,10 +155,11 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 void shash_table_print(const shash_table_t *ht)
 {
 	int counter = 0;
-	shash_node_t *h = ht->shead;
+	shash_node_t *h;
 
 	if (ht)
 	{
+		h = ht->shead;
 		putchar('{');
 		while (h)
 		{
