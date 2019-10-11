@@ -136,6 +136,8 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 	unsigned long int index;
 	shash_node_t *iterator;
 
+	if (!ht || !key || !strcmp(key, ""))
+		return (NULL);
 	index = key_index((unsigned const char *)key, ht->size);
 	iterator = ht->array[index];
 	while (iterator)
@@ -155,16 +157,19 @@ void shash_table_print(const shash_table_t *ht)
 	int counter = 0;
 	shash_node_t *h = ht->shead;
 
-	putchar('{');
-	while (h)
+	if (ht)
 	{
-		if (counter)
-			printf(", ");
-		printf("\'%s\': \'%s\'", h->key, h->value);
-		h = h->snext;
-		counter++;
+		putchar('{');
+		while (h)
+		{
+			if (counter)
+				printf(", ");
+			printf("\'%s\': \'%s\'", h->key, h->value);
+			h = h->snext;
+			counter++;
+		}
+		puts("}");
 	}
-	puts("}");
 }
 /**
 * shash_table_print_rev - Prints a sorted hash table in reverse order.
@@ -175,16 +180,19 @@ void shash_table_print_rev(const shash_table_t *ht)
 	int counter = 0;
 	shash_node_t *h = ht->stail;
 
-	putchar('{');
-	while (h)
+	if (ht)
 	{
-		if (counter)
-			printf(", ");
-		printf("\'%s\': \'%s\'", h->key, h->value);
+		putchar('{');
+		while (h)
+		{
+			if (counter)
+				printf(", ");
+			printf("\'%s\': \'%s\'", h->key, h->value);
 			h = h->sprev;
 			counter++;
+		}
+		puts("}");
 	}
-	puts("}");
 }
 /**
 * shash_table_delete - Deletes a sorted hash table.
