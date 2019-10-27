@@ -17,7 +17,7 @@ size_t node_max(int *array, size_t size, size_t i, size_t j, size_t k)
 		max = j;
 	if (k < size && array[k] > array[max])
 		max = k;
-	return max;
+	return (max);
 }
 
 /**
@@ -25,7 +25,7 @@ size_t node_max(int *array, size_t size, size_t i, size_t j, size_t k)
 * @array: Array to be sorted.
 * @size_u: Size of the unsorted array.
 * @i: Index of the current node to sort.
-* @Size: Size of the array.
+* @size: Size of the array.
 */
 void siftdown(int *array, size_t size_u, size_t i, size_t size)
 {
@@ -64,8 +64,8 @@ void heap_sort(int *array, size_t size)
 		temp = array[size - i - 1];
 		array[size - i - 1] = array[0];
 		array[0] = temp;
-			if (size - i - 1 != 0)
-		print_array(array, size);
+		if (size - i - 1 != 0)
+			print_array(array, size);
 		siftdown(array, size - i - 1, 0, size);
 	}
 }
