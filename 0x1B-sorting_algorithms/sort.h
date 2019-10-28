@@ -14,6 +14,18 @@ typedef struct listint_s
 	struct listint_s *prev;
 	struct listint_s *next;
 } listint_t;
+
+/**
+ * struct result_s - shake operation result
+ * @status: swapped = 1, not swapped = 0
+ * @head: Head to the sorted list
+ */
+typedef struct result_s
+{
+	int status;
+	listint_t *head;
+} result;
+
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 void bubble_sort(int *array, size_t size);
