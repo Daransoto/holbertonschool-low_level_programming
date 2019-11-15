@@ -7,7 +7,7 @@ def island_perimeter(grid):
     i = 1
     j = 1
     perimeter = 0
-    if grid is None or grid is not list:
+    if grid is None or type(grid) is not list:
         return 0
     length = len(grid)
     length2 = len(grid[0])
