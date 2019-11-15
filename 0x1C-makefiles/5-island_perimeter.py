@@ -11,6 +11,8 @@ def island_perimeter(grid):
         return 0
     length = len(grid)
     length2 = len(grid[0])
+    if 1 in grid[0] or 1 in grid[length - 1]:
+        return 0
     while i < length - 1:
         while j < length2 - 1:
             if grid[i][j] == 1:
