@@ -20,7 +20,8 @@ size_t binary_tree_depth(const binary_tree_t *tree)
 * @second: Pointer to the second node.
 * Return: Pointer to the lowest ancestor or NULL.
 */
-binary_tree_t *binary_trees_ancestor(const binary_tree_t *first, const binary_tree_t *second)
+binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
+const binary_tree_t *second)
 {
 	if (!first || !second)
 		return (NULL);
