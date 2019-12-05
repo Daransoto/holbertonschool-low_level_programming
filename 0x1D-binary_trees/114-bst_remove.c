@@ -86,9 +86,17 @@ bst_t *bst_remove(bst_t *root, int value)
 				node->parent->left = iterator;
 			else
 				node->parent->right = iterator;
-		iterator->left = node->left, iterator->right = node->right;
+		iterator->left = node->left;
+		if (iterator->right)
+		{
+			iterator->right->parent = iterator->parent;
+			iterator->parent->left = iterator->right;
+		}
+		else
+			iterator->parent->left = NULL;
+		iterator->right = node->right;
 		node->left->parent = iterator, node->right->parent = iterator;
-		iterator->parent->left = NULL, iterator->parent = node->parent;
+		iterator->parent = node->parent;
 	}
 	else
 		root = bst_remove_2(root, node);
