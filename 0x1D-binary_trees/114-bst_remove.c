@@ -43,6 +43,11 @@ bst_t *bst_remove_2(bst_t *root, bst_t *node)
 	{
 		if (node == root)
 			root = node->right;
+		else
+			if (node->parent->left == node)
+				node->parent->left = node->right;
+			else
+				node->parent->right = node->right;
 		node->right->parent = node->parent;
 	}
 	return (root);
