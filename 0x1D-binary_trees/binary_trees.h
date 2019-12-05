@@ -45,4 +45,5 @@ const binary_tree_t *second);
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
 void traverse_level(const binary_tree_t *tree, void (*func)(int),
  size_t level);
+binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
 #endif /* _BINARY_TREES_H_ */
