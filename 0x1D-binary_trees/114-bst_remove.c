@@ -41,7 +41,7 @@ bst_t *bst_remove_2(bst_t *root, bst_t *node)
 		else
 			node->parent->right = iterator;
 	iterator->left = node->left;
-	if (iterator->right)
+	if (iterator->right && iterator->parent != node)
 	{
 		iterator->right->parent = iterator->parent;
 		iterator->parent->left = iterator->right;
