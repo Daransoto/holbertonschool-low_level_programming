@@ -28,28 +28,14 @@ bst_t *bst_search(const bst_t *tree, int value)
 */
 bst_t *bst_remove_2(bst_t *root, bst_t *node)
 {
-	if (node->left)
-	{
-		if (node == root)
-			root = node->left;
-		else
-			if (node->parent->left == node)
-				node->parent->left = node->left;
-			else
-				node->parent->right = node->left;
-		node->left->parent = node->parent;
-	}
+	if (node == root)
+		root = node->left;
 	else
-	{
-		if (node == root)
-			root = node->right;
+		if (node->parent->left == node)
+			node->parent->left = node->left;
 		else
-			if (node->parent->left == node)
-				node->parent->left = node->right;
-			else
-				node->parent->right = node->right;
-		node->right->parent = node->parent;
-	}
+			node->parent->right = node->left;
+	node->left->parent = node->parent;
 	return (root);
 }
 /**
@@ -74,7 +60,7 @@ bst_t *bst_remove(bst_t *root, int value)
 		else
 			node->parent->right = NULL;
 	}
-	else if (node->left && node->right)
+	else if (node->right)
 	{
 		iterator = node->right;
 		while (iterator->left)
