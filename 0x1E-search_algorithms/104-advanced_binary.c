@@ -32,7 +32,8 @@ int recursive_search(int *array, int left, int right, int value)
 		printf("%d, ", array[i]);
 	printf("%d\n", array[i]);
 	mid = (right + left) / 2;
-	if (array[mid] == value && (left == right || mid == left))
+	if (array[mid] == value && (left == right || mid == left || array[mid - 1] <
+					value))
 		return (mid);
 	if (left >= right)
 		return (-1);
